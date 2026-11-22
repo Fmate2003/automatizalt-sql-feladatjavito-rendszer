@@ -116,7 +116,7 @@ Ha a referencia a célobjektumon változást vár, a többi objektum elvárt ál
 
 Üres válasz vagy az adott feladatban tiltott utasítás esetén 0 pont jár. A szintaktikai hibára adható pontot a `syntax_credit` mező határozza meg, amely ebben a vizsgában a 4. feladatnál 1, a többi feladatnál 0. A beadás futási hibája vagy adatbázis-szintű időtúllépése az érintett teszteseten 0 részpontot eredményez. Ha a referencia, a tesztadat vagy a futtatókörnyezet hibája miatt a javító nem tud pontot megállapítani, függőben jelöli az eredményt.
 
-## Helyi AI-visszajelzés
+## Opcionális AI-visszajelzés
 
 Az opcionális visszajelzés telepített Ollamát használ. Az Ollama a gépen futtatja a nyelvi modellt, amelyet a javító egy alkalmazásprogramozási felületen (API) ér el. A minta a `qwen3.5:2b-q4_K_M` modellt és a `http://127.0.0.1:11434/api/chat` címet használja. A modell nevét és a kérés időkorlátját a konfiguráció tartalmazza.
 
