@@ -10,6 +10,8 @@ from openpyxl import Workbook
 from openpyxl.styles import Font
 from openpyxl.utils import get_column_letter
 
+from .runtime import configure_cli_output
+
 
 def export_summary(source):
     source = Path(source)
@@ -62,6 +64,7 @@ def export_summary(source):
 
 
 if __name__ == "__main__":
+    configure_cli_output()
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("source", type=Path, help="A meglévő osszesito.xls fájl")
     args = parser.parse_args()

@@ -4,6 +4,8 @@ import json
 import re
 from pathlib import Path
 
+from .runtime import configure_cli_output
+
 
 def read_run(directory):
     reports = {}
@@ -74,4 +76,5 @@ def main(argv=None):
 
 
 if __name__ == "__main__":
+    configure_cli_output()
     raise SystemExit(main())

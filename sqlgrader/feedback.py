@@ -13,7 +13,7 @@ import sys
 
 from . import ai, output
 from .config import load
-from .runtime import bounded, enable_debug
+from .runtime import bounded, configure_cli_output, enable_debug
 
 LOG = logging.getLogger(__name__)
 
@@ -150,4 +150,5 @@ def main(argv=None):
 
 if __name__ == "__main__":
     multiprocessing.freeze_support()
+    configure_cli_output()
     raise SystemExit(main())

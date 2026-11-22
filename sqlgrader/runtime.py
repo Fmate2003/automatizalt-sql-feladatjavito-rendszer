@@ -1,4 +1,5 @@
 """Spawn works on Windows and Linux; the parent imposes a wall-clock deadline."""
+from io import TextIOWrapper
 import multiprocessing as mp
 import logging
 import os
@@ -8,6 +9,14 @@ import time
 
 LOG = logging.getLogger(__name__)
 PACKAGE = os.path.dirname(__file__) + os.sep
+
+
+def configure_cli_output():
+    """Keep Hungarian CLI text writable even when output is redirected."""
+    use_utf8 = os.name == "nt" and not os.environ.get("PYTHONIOENCODING")
+    for stream in (sys.stdout, sys.stderr):
+        if isinstance(stream, TextIOWrapper):
+            stream.reconfigure(encoding="utf-8" if use_utf8 else None, errors="backslashreplace")
 
 
 def _profile(frame, event, arg):

@@ -1,5 +1,8 @@
 from dataclasses import replace
+import os
 from pathlib import Path
+import subprocess
+import sys
 import tempfile
 import unittest
 
@@ -12,6 +15,26 @@ PROJECT = Path(__file__).resolve().parents[1]
 
 
 class Release(unittest.TestCase):
+    def test_cli_help_with_legacy_and_utf8_output(self):
+        help_text = {
+            "sqlgrader": "XLS-összesítő",
+            "sqlgrader.feedback": "időbélyeges",
+            "sqlgrader.verify": "kódmegfeleltetése",
+            "sqlgrader.excel_summary": "meglévő",
+        }
+        for encoding in ("cp1252", "utf-8"):
+            for module, expected in help_text.items():
+                with self.subTest(module=module, encoding=encoding):
+                    result = subprocess.run(
+                        [sys.executable, "-m", module, "--help"],
+                        cwd=PROJECT,
+                        env={**os.environ, "PYTHONIOENCODING": f"{encoding}:strict"},
+                        capture_output=True,
+                        timeout=20,
+                    )
+                    self.assertEqual(result.returncode, 0, result.stderr)
+                    self.assertIn(expected.encode(encoding, errors="backslashreplace"), result.stdout)
+
     def test_codes_and_inline_answer(self):
         with tempfile.TemporaryDirectory() as temp:
             p = Path(temp) / "beadas.sql"
