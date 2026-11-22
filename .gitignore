@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+eredmenyek/
+logs/
+*.bak
+.env
+.env.*
+!.env.example
+config.local.json
+config.oracle.local.json

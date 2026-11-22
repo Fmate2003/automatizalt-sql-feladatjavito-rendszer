@@ -1,0 +1,6 @@
+{
+  "engine": "postgresql", "host": "127.0.0.1", "port": 5432,
+  "database": "sql_grader_demo", "user": "sql_runner",
+  "statement_ms": 3000, "task_seconds": 35, "batch_seconds": 900,
+  "model": "qwen3.5:2b-q4_K_M", "ai_url": "http://127.0.0.1:11434/api/chat"
+}

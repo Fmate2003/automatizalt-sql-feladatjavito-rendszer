@@ -1,0 +1,10 @@
+INSERT INTO customers VALUES (5, 'Erik Demo', 'Budapest');
+INSERT INTO customers VALUES (6, 'Fanni Demo', 'Szeged');
+INSERT INTO products VALUES (5, 'Tok', 5000);
+INSERT INTO products VALUES (6, 'Teszt', 0);
+INSERT INTO orders VALUES (5, 5, 'paid');
+INSERT INTO orders VALUES (6, 2, 'paid');
+INSERT INTO orders VALUES (7, 6, 'new');
+INSERT INTO order_items VALUES (5, 5, 1);
+INSERT INTO order_items VALUES (6, 2, 1);
+INSERT INTO order_items VALUES (7, 6, 1);

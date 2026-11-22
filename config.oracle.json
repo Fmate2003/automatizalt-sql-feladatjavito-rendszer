@@ -1,0 +1,7 @@
+{
+  "engine": "oracle", "host": "127.0.0.1", "port": 1521,
+  "database": "CSERELD_A_PDB_SZOLGALTATASNEVRE", "user": "SQLGRADER_ADMIN",
+  "oracle_tablespace": "USERS", "oracle_client": null,
+  "statement_ms": 5000, "task_seconds": 60, "batch_seconds": 900,
+  "model": "qwen3:1.7b"
+}
